@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} About Us {% endblock title %}
+{% block content %}
+<style> /* add internal css */
+h1{
+color: green;
+}
+h2{
+color: lightskyblue;
+}
+p {
+font-family: verdana;
+font-size: 20px;
+}
+</style>
+<h1>List of Books</h1>
+<a href={%url "books.one_book" bookId=1 %}><h2>Internet & World Wide Web How to Program</h2></a>
+<img src={%static "book1.jpg" %} alt="Book1 img desc" width="200"
+height="200"></a>
+<hr>
+<a href={%url "books.one_book" bookId=2 %}><h2>C++ How to Program, Late Objects Version</h2></a>
+<img src={%static "book2.jpg" %} alt="Book2 img desc" width="200" height="200">
+<hr>
+<a href={%url "books.one_book" bookId=3 %}><h2>Images in Another Folder</h2></a>
+<img src={%static "book3.jpg" %} alt="Book3 img desc" width="200" height="200">
+<hr>
+{% endblock content %}
