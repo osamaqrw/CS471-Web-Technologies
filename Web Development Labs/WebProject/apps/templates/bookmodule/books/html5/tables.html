@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head> 
+<body>
+    <div class = 'table1'>
+        <table>
+            <caption>Table 1: Table of Fruits and Their Prices</caption>
+            <tr>
+                <th>Fruit</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Apple</td>
+                <td>$0.25</td>
+            </tr>
+            <tr>
+                <td>Orange</td>
+                <td>$0.50</td>
+            </tr>
+            <tr>
+                <td>Banana</td>
+                <td>$1.00</td>
+            </tr>
+            <tr>
+                <td>Pineapple</td>
+                <td>$2.00</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>$3.75</th>
+            </tr>
+        </table>    
+    </div>
+    <div class = 'table2'>
+        <table>
+            <caption>Table 2: A more complex sample table</caption>
+            <tr> 
+                <td rowspan='2'> <img src={%static "desert.jpg" %} alt="Image of desert" width="200" height'200'></td>
+                <th colspan='4'>Camelid comparison<br>Approximate as of 6/2011</th>
+            </tr>
+            <tr>
+                <th># of humps</th>
+                <th>Indigenous region</th>
+                <th>Spits?</th>
+                <th>Produces wool?</th>
+            </tr>
+            <tr>
+                <th>Dromedary</th>
+                <td>1</td>
+                <td>Arabic peninsula</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <th>Camels (bactrian)</th>
+                <td>2</td>
+                <td>Africa/Asia</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <th>Llamas</th>
+                <td>1</td>
+                <td>Andes mountains</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

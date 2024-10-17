@@ -1,0 +1,91 @@
+.links {
+    width: 100%;
+}
+
+a{
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+
+#link1 {
+    color: red;
+    background-color: aquamarine;
+}
+
+#link2 {
+    color: gold;
+    background-color: grey;
+}
+
+#link3 {
+    color: white;
+    background-color: black;
+}
+
+.links a:visited{
+    color: transparent;
+}
+
+.links a:hover{
+    color: purple;
+}
+
+.links a:active{
+    color: rgb(0, 183, 255);
+}
+
+.formatting p {
+    font-size: 24px;
+}
+
+.formatting h1 {
+    color: green;
+    background-color: rgba(255, 255, 0, 0.339);
+    padding: 20px;
+}
+
+.listing h1 {
+    color: white;
+    background-color: rgb(0, 160, 160);
+    padding: 20px;
+}
+
+.table1 table {
+    width: 200px; 
+    border-collapse: collapse;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 18px; 
+}
+
+.table1 th, .table1 td {
+    border: 1px solid black; 
+}
+
+.table1 caption {
+    font-weight: bold;
+    font-size: 20px; 
+    margin-bottom: 10px;
+    caption-side: top;
+}
+
+.table2 table { 
+    border-collapse: collapse;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 18px; 
+}
+
+.table2 th, .table2 td {
+    border: 1px solid black; 
+    padding: 8px;
+}
+
+.table2 caption {
+    font-weight: bold;
+    font-size: 20px; 
+    margin-bottom: 10px;
+    caption-side: top;
+}
