@@ -52,11 +52,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% for book in books %}
+                {% for obj in books %}
                 <tr>
-                    <td>{{ book.id }}</td>
-                    <td>{{ book.title }}</td>
-                    <td>{{ book.author }}</td>
+                    <td>{{ obj.id }}</td>
+                    <td>{{ obj.title }}</td>
+                    <td>{{ obj.author }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

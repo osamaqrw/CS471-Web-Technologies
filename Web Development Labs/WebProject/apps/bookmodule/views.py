@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Book
 def index(request):
         name = request.GET.get('name') or 'world!'
         return render(request, 'bookmodule/index.html', {'name' : name})
@@ -64,3 +64,19 @@ def __getBooksList():
         book2 = {'id':56788765,'title':'Reversing: Secrets of Reverse Engineering', 'author':'E. Eilam'}
         book3 = {'id':43211234, 'title':'The Hundred-Page Machine Learning Book', 'author':'Andriy Burkov'}
         return [book1, book2, book3]
+
+def createbook(request):
+        mybook = Book.objects.create(title = 'Continuous Delivery', author = 'J.Humble and D.Farley', edition = 1)
+        mybook.save()
+        return HttpResponse('Book created.')
+
+def simple_query(request):
+        mybooks=Book.objects.filter(title__icontains='i') # <- multiple objects
+        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+
+def complex_query(request):
+        mybooks=books=Book.objects.filter(author__isnull = False).filter(title__icontains='i').filter(edition__gte = 2).exclude(price__lte = 100)[:10]
+        if len(mybooks)>=1:
+                return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+        else:
+                return render(request, 'bookmodule/index.html')
