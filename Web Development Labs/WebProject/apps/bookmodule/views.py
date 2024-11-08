@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book
+from django.db.models import Q
+from django.db.models import Min, Max, Sum, Avg, Count
+from .models import Address
 def index(request):
         name = request.GET.get('name') or 'world!'
         return render(request, 'bookmodule/index.html', {'name' : name})
@@ -80,3 +83,40 @@ def complex_query(request):
                 return render(request, 'bookmodule/bookList.html', {'books':mybooks})
         else:
                 return render(request, 'bookmodule/index.html')
+
+def lab8_task1(request):
+        mybooks=Book.objects.filter(Q(price__lte = 50))
+        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+
+def lab8_task2(request):
+        mybooks=Book.objects.filter(Q(edition__gt = 2) & Q(Q(title__contains = 'qu') | Q(author__contains = 'qu')))
+        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+
+def lab8_task3(request):
+        mybooks=Book.objects.filter(~Q(edition__gt = 2) & ~Q(Q(title__contains = 'qu') | Q(author__contains = 'qu')))
+        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+
+def lab8_task4(request):
+        mybooks=Book.objects.filter().order_by('title')
+        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+
+def lab8_task5(request):
+        bookCount = Book.objects.filter().count()
+        totalPrice = Book.objects.aggregate(total = Sum('price', default = 0))['total']
+        averagePrice = Book.objects.aggregate(average = Avg('price', default = 0))['average']
+        maxPrice = Book.objects.aggregate(max = Max('price', default = 0))['max']
+        minPrice = Book.objects.aggregate(min = Min('price', default = 0))['min']
+        context = {
+        'bookCount': bookCount,
+        'totalPrice': totalPrice,
+        'averagePrice': averagePrice,
+        'maxPrice': maxPrice,
+        'minPrice': minPrice,
+        }
+        return render(request, 'bookmodule/books/lab8/task5.html', context)
+
+def lab8_task7(request):
+        countCity = Address.objects.annotate(student_count=Count('student'))
+    
+        context = {'city_counts': countCity,}
+        return render(request, 'bookmodule/books/lab8/task7.html', context)
