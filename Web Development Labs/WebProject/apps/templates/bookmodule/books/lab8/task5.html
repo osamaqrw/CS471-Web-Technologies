@@ -33,25 +33,24 @@
 
 {% block content %}
     <h2>Search Results</h2>
-
-    {% if city.student_count > 0  %}
         <table class="bookResultTable">
             <thead>
                 <tr>
-                    <th>City</th>
-                    <th>Student Count</th>
+                    <th>Number of Books</th>
+                    <th>Total Price</th>
+                    <th>Average Price</th>
+                    <th>Maximum Price</th>
+                    <th>Minimum Price</th>
                 </tr>
             </thead>
             <tbody>
-                {% for city in city_counts %}
-                    <tr>
-                        <td>{{ city.city }}</td>
-                        <td>{{ city.student_count }}</td>
-                    </tr>
-                {% endfor %}
+                <tr>
+                    <td>{{ bookCount }}</td>
+                    <td>{{ totalPrice }}</td>
+                    <td>{{ averagePrice }}</td>
+                    <td>{{ maxPrice }}</td>
+                    <td>{{ minPrice }}</td>
+                </tr>
             </tbody>
         </table>
-    {% else %}
-        <p>No students found.</p>
-    {% endif %}
 {% endblock content %}

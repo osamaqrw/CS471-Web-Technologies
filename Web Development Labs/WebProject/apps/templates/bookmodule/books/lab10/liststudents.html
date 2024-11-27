@@ -1,0 +1,91 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %}List Students{% endblock title %}
+
+{% block stylesheets %}
+    <style>
+        .studentResultTable {
+            width: 80%; 
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .studentResultTable th, .studentResultTable td {
+            border: 1px solid black;
+            padding: 12px; 
+        }
+
+        .studentResultTable th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .addStudentButton {
+            display: block;
+            width: 30%;
+            margin: 20px auto;
+            text-align: center;
+            background-color: green;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .action-buttons a {
+            margin-right: 10px;
+            color: blue;
+            text-decoration: none;
+        }
+
+        .action-buttons a.delete {
+            color: red;
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <h2>List of Students</h2>
+
+    <a href="{% url 'books.lab10_addstudent' %}" class="addStudentButton">Add New Student</a>
+
+    {% if students %}
+        <table class="studentResultTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.address.city }}</td>
+                    <td class="action-buttons">
+                        <a href="{% url 'books.lab10_updatestudent' student.id %}">Update</a>
+                        <a href="{% url 'books.lab10_deletestudent' student.id %}" class="delete">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No students found.</p>
+    {% endif %}
+{% endblock content %}
+

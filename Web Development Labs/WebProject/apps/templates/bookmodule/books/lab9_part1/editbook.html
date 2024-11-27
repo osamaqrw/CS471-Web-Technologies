@@ -1,0 +1,60 @@
+{% extends "layouts/base.html" %}
+{% block title %}Edit Book{% endblock title %}
+
+{% block stylesheets %}
+<style>
+    form {
+        width: 400px;
+        margin: 20px auto;
+    }
+    
+    label {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    input {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+<div>
+    <h3>Edit Book</h3>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="{{ book.title }}" required />
+        </div>
+        
+        <div>
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" value="{{ book.price }}" required />
+        </div>
+        
+        <div>
+            <label for="edition">Edition</label>
+            <input type="number" id="edition" name="edition" value="{{ book.edition }}" required />
+        </div>
+        
+        <div>
+            <label for="author_id">Author</label>
+            <input type="text" id="author_id" name="author_id" value="{{ book.author }}" required />
+        </div>
+        
+        <button type="submit">Update Book</button>
+    </form>
+</div>
+{% endblock content %}
+

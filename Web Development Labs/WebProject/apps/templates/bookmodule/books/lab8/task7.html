@@ -1,0 +1,55 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %}Search Results{% endblock title %}
+
+{% block stylesheets %}
+    <style>
+        .bookResultTable {
+            width: 80%; 
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .bookResultTable th, .bookResultTable td {
+            border: 1px solid black;
+            padding: 12px; 
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <h2>Search Results</h2>
+
+   
+        <table class="bookResultTable">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Student Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for city in city_counts %}
+                    <tr>
+                        <td>{{ city.city }}</td>
+                        <td>{{ city.student_count }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+{% endblock content %}

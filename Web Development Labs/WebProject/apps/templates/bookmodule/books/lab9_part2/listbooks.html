@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %}List Books{% endblock title %}
+
+{% block stylesheets %}
+    <style>
+        .bookResultTable {
+            width: 80%; 
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .bookResultTable th, .bookResultTable td {
+            border: 1px solid black;
+            padding: 12px; 
+        }
+
+        .bookResultTable th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .addBookButton {
+            display: block;
+            width: 30%;
+            margin: 20px auto;
+            text-align: center;
+            background-color: green;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .action-buttons a {
+            margin-right: 10px;
+            color: blue;
+            text-decoration: none;
+        }
+
+        .action-buttons a.delete {
+            color: red;
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <h2>List of Books</h2>
+
+    <a href="{% url 'books.lab9_part2_addbook' %}" class="addBookButton">Add New Book</a>
+
+    {% if books %}
+        <table class="bookResultTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Edition</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in books %}
+                <tr>
+                    <td>{{ obj.id }}</td>
+                    <td>{{ obj.title }}</td>
+                    <td>{{ obj.author }}</td>
+                    <td>{{ obj.edition }}</td>
+                    <td>{{ obj.price }}</td>
+                    <td class="action-buttons">
+                        <a href="{% url 'books.lab9_part2_editbook' obj.id %}">Edit</a>
+                        <a href="{% url 'books.lab9_part2_deletebook' obj.id %}" class="delete">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No books found.</p>
+    {% endif %}
+{% endblock content %}

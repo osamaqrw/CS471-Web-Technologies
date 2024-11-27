@@ -1,0 +1,46 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %}Add Student{% endblock title %}
+
+{% block stylesheets %}
+    <style>
+        .form-container {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        .form-group {
+            margin: 10px 0;
+        }
+
+        .form-group label {
+            display: block;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+        }
+
+        .submit-button {
+            background: green;
+            color: white;
+            padding: 5px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Add New Student</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-button">Add Student</button>
+        </form>
+    </div>
+{% endblock content %}

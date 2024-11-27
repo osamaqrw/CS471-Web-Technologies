@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 """
 URL configuration for WebProject project.
 
@@ -22,3 +24,10 @@ urlpatterns = [
     path('books/', include("apps.bookmodule.urls")), #include urls.py of bookmodule app
     path('users/', include("apps.usermodule.urls")) #include urls.py of usermodule app
 ]
+
+# main urls.py, add the following to the end of file
+# this allow Django to access the media files while in production
+# in production (ie. in this server), this should be disabled
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)
