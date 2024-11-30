@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 from apps.bookmodule.forms import *
 from .models import Book
 from django.db.models import Min, Max, Sum, Avg, Count, Q
@@ -163,6 +163,8 @@ def lab9_part1_deletebook(request, id):
         book.delete()
         return redirect('books.lab9_part1_listbooks')
 
+
+@login_required(login_url="login")
 def lab9_part2_listbooks(request):
         context = {'books': Book.objects.all().order_by('id')}
         return render(request, 'bookmodule/books/lab9_part2/listbooks.html', context)

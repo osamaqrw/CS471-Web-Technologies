@@ -37,6 +37,8 @@ urlpatterns = [
     path('lab10/multiaddstudent', views.lab10_multi_addstudent, name='books.lab10_multi_addstudent'),
     path('lab10/multiupdatestudent/<int:id>', views.lab10_multi_updatestudent, name='books.lab10_multi_updatestudent'),
     path('lab10/multideletestudent/<int:id>', views.lab10_multi_deletestudent, name='books.lab10_multi_deletestudent'),
+
+    
 ]   
 
 

@@ -3,6 +3,7 @@ from django import forms
 
 class RecoverForm(forms.Form):
     email = forms.EmailField()
+    
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = User
