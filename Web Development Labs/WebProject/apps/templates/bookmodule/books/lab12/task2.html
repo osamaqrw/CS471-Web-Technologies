@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+{% block title %}Lab 12 - Task 1{% endblock title %}
+
+{% block content %}
+<h2>Task 2</h2>
+    
+    <ul id='myList'>
+        <li>List Element
+    </ul>
+    
+    <button type="submit" id="additem">Add item to list</button>
+{% endblock content %}
+
+{%block javascripts%}
+<script>
+    const addButton = document.getElementById('additem');
+   
+    addButton.onclick = function() {
+        const node = document.createElement("li");
+        const textnode = document.createTextNode("List Element");
+        node.appendChild(textnode);
+        document.getElementById("myList").appendChild(node); 
+    }
+</script>
+
+{%endblock javascripts%}

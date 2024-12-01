@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+{% block title %}Lab 12 - Task 1{% endblock title %}
+
+{% block content %}
+<h2>Task 1</h2>
+    
+<div class='element'>
+    <p>Text Number 1</p>
+</div>
+    <button type="submit" id="changecolor">Change Background Color</button>
+    <button type="submit" id="changetext">Change Text</button>
+{% endblock content %}
+
+{%block javascripts%}
+<script>
+    const colorButton = document.getElementById('changecolor');
+    const textButton = document.getElementById('changetext');
+    const divElement = document.getElementsByClassName('element')[0]
+    divElement.style.color = 'blue';
+    colorButton.onclick = function() {
+        divElement.style.color = 'red';
+    }
+    textButton.onclick = function(){
+        divElement.innerHTML = 'Text Number 2';
+    }
+</script>
+
+{%endblock javascripts%}

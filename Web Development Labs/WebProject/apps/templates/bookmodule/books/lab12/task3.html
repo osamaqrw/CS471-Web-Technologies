@@ -1,0 +1,28 @@
+{% extends "layouts/base.html" %}
+{% block title %}Lab 12 - Task 1{% endblock title %}
+
+{% block content %}
+<h2>Task 3</h2>
+    
+<div class="element">
+    <p>This is test text.</p>
+</div>
+<button type="button" id="toggle">Hide</button>
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+    const toggleButton = document.getElementById('toggle');
+    const divElement = document.getElementsByClassName('element')[0];
+    
+    toggleButton.onclick = function() {
+        if (divElement.style.display === "none") {
+            divElement.style.display = "block"; 
+            toggleButton.textContent = "Hide"; 
+        } else {
+            divElement.style.display = "none"; 
+            toggleButton.textContent = "Show"; 
+        }
+    }
+</script>
+{% endblock javascripts %}

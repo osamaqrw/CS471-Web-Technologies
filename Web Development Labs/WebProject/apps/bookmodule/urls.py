@@ -28,17 +28,21 @@ urlpatterns = [
     path('lab9_part2/addbook', views.lab9_part2_addbook, name='books.lab9_part2_addbook'),
     path('lab9_part2/editbook/<int:id>', views.lab9_part2_editbook, name='books.lab9_part2_editbook'),
     path('lab9_part2/deletebook/<int:id>', views.lab9_part2_deletebook, name='books.lab9_part2_deletebook'),
+
     path('lab10/liststudents', views.lab10_liststudents, name='books.lab10_liststudent'),
     path('lab10/addstudent', views.lab10_addstudent, name='books.lab10_addstudent'),
     path('lab10/updatestudent/<int:id>', views.lab10_updatestudent, name='books.lab10_updatestudent'),
     path('lab10/deletestudent/<int:id>', views.lab10_deletestudent, name='books.lab10_deletestudent'),
-    
     path('lab10/multilisttudents', views.lab10_multi_liststudents, name='books.lab10_multi_liststudents'),
     path('lab10/multiaddstudent', views.lab10_multi_addstudent, name='books.lab10_multi_addstudent'),
     path('lab10/multiupdatestudent/<int:id>', views.lab10_multi_updatestudent, name='books.lab10_multi_updatestudent'),
     path('lab10/multideletestudent/<int:id>', views.lab10_multi_deletestudent, name='books.lab10_multi_deletestudent'),
 
-    
+    path('lab12/task1', views.lab12_task1, name='books.lab12_task1'),
+    path('lab12/task2', views.lab12_task2, name='books.lab12_task2'),
+    path('lab12/task3', views.lab12_task3, name='books.lab12_task3'),
+    path('lab12/task4', views.lab12_task4, name='books.lab12_task4'),
+
 ]   
 
 

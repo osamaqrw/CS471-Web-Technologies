@@ -260,3 +260,15 @@ def lab10_multi_deletestudent(request, id):
         student = Student2.objects.get(id=id)
         student.delete()
         return redirect('books.lab10_multi_liststudents')
+
+def lab12_task1(request):
+        return render(request, 'bookmodule/books/lab12/task1.html')
+
+def lab12_task2(request):
+        return render(request, 'bookmodule/books/lab12/task2.html')
+
+def lab12_task3(request):
+        return render(request, 'bookmodule/books/lab12/task3.html')
+
+def lab12_task4(request):
+        return render(request, 'bookmodule/books/lab12/task4.html') 
